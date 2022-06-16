@@ -1,0 +1,23 @@
+html{
+    background-color: rgba(163, 241, 215, 0.547);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 550px;
+    width: 500px;
+    margin: auto;
+    margin-top: 10%;
+    background-color: white;
+    padding-top: 0%;
+    gap: 15%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    
+}

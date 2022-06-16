@@ -1,0 +1,51 @@
+html{
+    margin: none;
+    padding: none;
+}
+.nav{
+    background-color: rgba(163, 241, 215, 0.547);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.logoimg{
+    max-width: 150px;
+}
+.banner{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+.postButton{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid black;
+    margin: 2%; 
+}
+.likes{
+    display: flex;
+    flex-direction: column;
+    width: 8%;
+    justify-content:center;
+}
+.votes{
+    background-color: transparent;
+    font-size: 20px;
+    padding: none;
+    border: none;
+    max-height: fit-content;
+}
+.content{
+    flex:2;
+}

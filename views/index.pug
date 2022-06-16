@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        <script src="https://kit.fontawesome.com/eff4b95ebd.js" crossorigin="anonymous"></script>
+        link(rel="stylesheet", href="style.css")
+        title Wreddit
+    body 
+        div.nav 
+            div.logo
+               img.logoimg(src="/logo3.png", alt="", srcset="")
+            br 
+            div.banner       
+                p the place where skeletons come out of the closet.
+            div.postButton
+                a(href='//localhost:3000/post') 
+                    button(id="post-button") Post
+        
+        h2 What's trending
+
+        div 
+            each posts in post 
+                div.card
+                    div.likes
+                        button.votes
+                           a(href='#')
+                                i.fa.fa-arrow-up(aria-hidden='true') 
+                        p upvotes#
+                        button.votes
+                            a(href="#")
+                                i.fa.fa-arrow-down(aria-hidden='true') 
+                    div.content
+                        h3=`${posts.title}`
+                        p=`${posts.text}`       
+        br
+    
