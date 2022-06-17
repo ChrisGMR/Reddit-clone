@@ -1,5 +1,30 @@
 html{
-    background-color: rgba(163, 241, 215, 0.547);
+    background-color: rgb(223, 189, 137);
+}
+.nav{
+    background-color: rgb(223, 189, 137);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+.logo{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.logoimg{
+    height: 50px;
+}
+.banner{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+.postButton{
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 .container{
     display: flex;
@@ -11,7 +36,7 @@ html{
     height: 550px;
     width: 500px;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
     background-color: white;
     padding-top: 0%;
     gap: 15%;

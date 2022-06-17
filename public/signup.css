@@ -1,0 +1,22 @@
+html{
+    background-color: rgb(223, 189, 137);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    margin-top: 10%;
+    background-color: white;
+    padding-top: 0%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    
+}

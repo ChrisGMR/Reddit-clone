@@ -4,9 +4,23 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        <script src="https://kit.fontawesome.com/eff4b95ebd.js" crossorigin="anonymous"></script>
         link(rel="stylesheet", href="postPage.css")
         title Wreddit post 
     body 
+       div.nav 
+            div.logo
+               img.logoimg(src="/lg10.jpg", alt="", srcset="")
+            br 
+            div.banner       
+                h2 Let It Rip 
+            div.home
+                a(href='//localhost:3000/homepage')
+                    button(id='Home-button') 
+                        i.fa-solid.fa-house 
+            div.postButton
+                a(href='//localhost:3000/post') 
+                    button(id="post-button") Post
        div.container
         h1 Post your confession sinner 
         form(action="/post", method="POST") 

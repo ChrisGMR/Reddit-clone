@@ -10,13 +10,20 @@ html(lang="en")
     body 
         div.nav 
             div.logo
-               img.logoimg(src="/logo3.png", alt="", srcset="")
+               img.logoimg(src="/lg10.jpg", alt="", srcset="")
             br 
             div.banner       
                 p the place where skeletons come out of the closet.
+            div.signup 
+                a(href='//localhost:3000/signup')
+                    button(id='signup-button') Sing Up
+            div.login 
+                a(href='//localhost:3000/login')
+                    button(id='login-button') Log In
             div.postButton
                 a(href='//localhost:3000/post') 
                     button(id="post-button") Post
+                        
         
         h2 What's trending
 

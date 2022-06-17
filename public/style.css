@@ -3,18 +3,23 @@ html{
     padding: none;
 }
 .nav{
-    background-color: rgba(163, 241, 215, 0.547);
+    background-color: rgb(223, 189, 137);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 50px;
 }
 .logo{
     flex: 1;
     display: flex;
     justify-content: center;
+    
 }
 .logoimg{
-    max-width: 150px;
+    height:50px;
+    
 }
 .banner{
     flex: 2;
@@ -32,6 +37,7 @@ html{
     justify-content: center;
     border: 2px solid black;
     margin: 2%; 
+    background-color: rgb(223, 189, 137);
 }
 .likes{
     display: flex;
@@ -48,4 +54,32 @@ html{
 }
 .content{
     flex:2;
+}
+#logout-button{
+    background-color: rgb(170, 138, 90);
+    box-shadow: none;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#post-button{
+    background-color: rgb(170, 138, 90);
+    box-shadow: none;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#login-button{
+    background-color: rgb(170, 138, 90);
+    box-shadow: none;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#signup-button{
+    background-color: rgb(170, 138, 90);
+    box-shadow: none;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
