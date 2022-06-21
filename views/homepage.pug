@@ -4,6 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        script(src="https://kit.fontawesome.com/eff4b95ebd.js" crossorigin="anonymous")
         link(rel="stylesheet", href="style.css")
         title W-Homepage
     body
@@ -12,7 +13,7 @@ html(lang="en")
                img.logoimg(src="/lg10.jpg", alt="", srcset="")
             br 
             div.banner       
-                h3=`Welcome Back ${users}`
+                h3=`Welcome Back`
             div.logout 
                 a(href='//localhost:3000/logout')
                     button(id='logout-button') Log Out
@@ -22,7 +23,23 @@ html(lang="en")
                     button(id="post-button") Post
         div     
             h2 What is trending 
-        
-            
+            div 
+            each posts in post 
+                div.card
+                    div.likes
+                        button.votes(id="upvotes" onclick="increaseLikes(this)" value=`${posts.title}`)
+                           a(href='#')
+                                i.fa.fa-arrow-up(aria-hidden='true')
+                        p.score=`${posts.likes}`
+                        button.votes(id="downvotes" onclick="decreaseLikes(this)" value=`${posts.title}`)
+                            a(href="#")
+                                i.fa.fa-arrow-down(aria-hidden='true') 
+                    div.content
+                        h3=`${posts.title}`
+                        p=`${posts.text}` 
+                        if posts.picture 
+                             img.picture(src=`${posts.picture}`)        
+        br
+        script(type="text/javascript" src="main.js") 
         
         

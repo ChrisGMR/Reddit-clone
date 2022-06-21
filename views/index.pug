@@ -4,9 +4,9 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        <script src="https://kit.fontawesome.com/eff4b95ebd.js" crossorigin="anonymous"></script>
+        script(src="https://kit.fontawesome.com/eff4b95ebd.js" crossorigin="anonymous")
         link(rel="stylesheet", href="style.css")
-        title Wreddit
+        title W-rabbit
     body 
         div.nav 
             div.logo
@@ -26,20 +26,26 @@ html(lang="en")
                         
         
         h2 What's trending
-
+       
         div 
             each posts in post 
                 div.card
                     div.likes
-                        button.votes
+                        button.votes(id="upvotes" onclick="increaseLikes()" method="POST")
                            a(href='#')
-                                i.fa.fa-arrow-up(aria-hidden='true') 
-                        p upvotes#
-                        button.votes
+                                i.fa.fa-arrow-up(aria-hidden='true')
+                        p.score=`${posts.likes}`
+                        button.votes(id="downvotes" onclick="decreaseLikes()")
                             a(href="#")
                                 i.fa.fa-arrow-down(aria-hidden='true') 
                     div.content
                         h3=`${posts.title}`
-                        p=`${posts.text}`       
+                        p=`${posts.text}`
+                        if posts.picture 
+                             img.picture(src=`${posts.picture}`)      
         br
+    script(type="text/javascript" src="main.js") 
+
+        
+            
     

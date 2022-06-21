@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const res = require("express/lib/response");
 const { set } = require('mongoose');
-const { redirect } = require('express/lib/response');
+const { redirect, get, cookie } = require('express/lib/response');
 app.set("views", "./views")
 app.set("view engine", "pug")
 
@@ -46,6 +46,7 @@ app.get("/", (req,res) => {
         res.render('index', {post: results})
     })
 })
+
 //sign up
 app.get('/signup', (req,res)=>{
     res.render('signup')
@@ -68,9 +69,6 @@ app.post('/signup', (req,res) => {
 
 
 //Log in 
-//take in the username and password. --- done
-//find the user name, and compare password. --- done
-//take the username and has in function ans add it to the data base 
 app.get('/login', (req,res)=>{
     res.render('login')
 })
@@ -92,21 +90,53 @@ app.get("/logout", (req,res)=>{
 })
 //homepage route
 app.get("/homepage", (req,res) =>{
-    res.render("homepage") 
+    
+    post.find().sort({likes: -1}).toArray().then(results => {
+        res.render('homepage', {post: results})
+        
+    })
     
 })
+app.put("/upvote/:title", (req,res) =>{
+    post.findOneAndUpdate({ title: req.params.title },
+    {
+      $inc: {
+        "likes": 1,
+      }
+    },
+    {
+      upsert: true
+    }
+  ).then(result => {
+    res.redirect("/homepage")
+    }).catch(error => console.log(error))
+})
+app.put("/downvotes/:title", (req,res) =>{
+    post.findOneAndUpdate({ title: req.params.title },
+    {
+      $inc: {
+        "likes": -1,
+      }
+    },
+    {
+      upsert: true
+    }
+  ).then(result => {
+    res.send(result)}
+    ).catch(error => console.log(error))
+})
+
+
 // for images asked to provide image link, the displaying the image in an img tag. 
 // when logged out delete the cookie, and redirect to home page. 
 // res.clearCookie("username") // this is how to clear a cookie.
-
-
 
 //post page
 app.get("/post", (req,res)=>{
     if(req.cookies.username){
         res.render('post')
     }else{
-        res.send('Please Sign In ya Sinner')
+        res.render('Error')
     }
     
 })

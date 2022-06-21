@@ -2,7 +2,7 @@ html{
     background-color: rgb(223, 189, 137);
 }
 .nav{
-    background-color: rgb(223, 189, 137);
+    background-color: rgb(166, 143, 108);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,4 +45,18 @@ form{
     display: flex;
     flex-direction: column;
     
+}
+#post-button{
+    background-color: rgb(170, 138, 90);
+    box-shadow: none;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#Home-button{
+    background-color: rgb(170, 138, 90);
+    box-shadow: none;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
