@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express')
+const mongoose = require('mongoose')
 const app = express()
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -16,8 +17,8 @@ app.use(express.static('images'))
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-// how can I make this secure--- so the database password is not shown? 
-const uri = `mongodb+srv://cmunoz:Ik7BmRyBIkVCGsyI@cluster0.jkfpm.mongodb.net/?retryWrites=true&w=majority`;
+ 
+const uri = (`${process.env.Atlas_URI}`);
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 })
 client.connect(err => {
     if(err){
@@ -31,18 +32,10 @@ const db = client.db("reddit-clone")
 const post = db.collection("posts")
 const user = db.collection("users")
 
-// const checkIfSignIn = (req, res, next) =>{
-//     if(req.cookies.username){
-//         next()
-//     }else{
-//         res.send('Please Sign Up ya Sinner')
-//     }
-// }
-
 //routes
 //home page
 app.get("/", (req,res) => {
-    post.find().toArray().then(results => {
+    post.find().sort({likes: -1}).toArray().then(results => {
         res.render('index', {post: results})
     })
 })
@@ -126,10 +119,6 @@ app.put("/downvotes/:title", (req,res) =>{
     ).catch(error => console.log(error))
 })
 
-
-// for images asked to provide image link, the displaying the image in an img tag. 
-// when logged out delete the cookie, and redirect to home page. 
-// res.clearCookie("username") // this is how to clear a cookie.
 
 //post page
 app.get("/post", (req,res)=>{
